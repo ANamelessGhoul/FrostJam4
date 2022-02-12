@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public UnityEvent<bool> hasKeyChanged;
 
-    private bool hasKey = false;
+    [SerializeField] private bool hasKey = false;
     public bool HasKey
     {
         get => hasKey;
