@@ -5,6 +5,9 @@ using UnityEngine;
 public class LightManager : MonoBehaviour
 {
     [SerializeField] private GameObject lightParent;
+    [SerializeField] private float flickerProbability = 1;
+
+    private bool _isFlickering = false;
 
     private GameManager _gameManager;
 
@@ -17,15 +20,40 @@ public class LightManager : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        StartCoroutine(BlinkCoroutine());
+        StartCoroutine(FlickerTriggerCoroutine());
     }
-    private IEnumerator BlinkCoroutine() 
+
+    private IEnumerator FlickerTriggerCoroutine() 
     {
         while (true) 
         {
             yield return new WaitForSeconds(1.0f);
+            if (!_isFlickering) 
+            {
+                var randomNumber = Random.Range(0, 100);
+                if (randomNumber < flickerProbability) 
+                {
+                    _isFlickering = true;
+                    StartCoroutine(BlinkCoroutine());
+
+                    var flickerDuration = 5f;
+                    yield return new WaitForSeconds(flickerDuration);
+                    _isFlickering = false;
+                }
+            }
+        }
+    }
+
+    private IEnumerator BlinkCoroutine() 
+    {
+        while (_isFlickering) 
+        {
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
             GameManager.Instance.AreLightsOn = !GameManager.Instance.AreLightsOn;
             lightParent.SetActive(GameManager.Instance.AreLightsOn);
         }
+
+        GameManager.Instance.AreLightsOn = true;
+        lightParent.SetActive(GameManager.Instance.AreLightsOn);
     }
 }

@@ -15,8 +15,8 @@ GameObject:
   m_Name: Cube.104
   m_TagString: Door
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &6878149099256698101
 Transform:
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8283695912164632955}
   - component: {fileID: 7431077077518812848}
   - component: {fileID: 689909940164021335}
+  - component: {fileID: 2733820904179335379}
   m_Layer: 0
   m_Name: DoorR
   m_TagString: Door
@@ -180,6 +181,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.022826077, y: 0.8679293, z: 0.020195948}
   m_Center: {x: -0.0014132774, y: 0.06189549, z: -0.000097975135}
+--- !u!208 &2733820904179335379
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689909940164021328}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.011000001, y: 0.43400002, z: 0.010000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.001, y: 0.062000003, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2402771315500912955
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +214,7 @@ GameObject:
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &3031920267612801921
 Transform:
@@ -208,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 2402771315500912955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.5913415, y: 0, z: -2.3967037}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.7, z: 0.65}
   m_Children:
   - {fileID: 1527477559736628679}
   - {fileID: 6533434262796452713}
@@ -367,6 +384,7 @@ GameObject:
   - component: {fileID: 61145441447614442}
   - component: {fileID: 5053413507386379899}
   - component: {fileID: 6147204106931170425}
+  - component: {fileID: 2346329077311463740}
   m_Layer: 0
   m_Name: DoorL
   m_TagString: Door
@@ -452,6 +470,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.022826077, y: 0.527153, z: 0.023420854}
   m_Center: {x: -0.00043466967, y: -0.1433058, z: 0.0016401869}
+--- !u!208 &2346329077311463740
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147204106931170426}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.011000001, y: 0.264, z: 0.012}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.143, z: 0.002}
+  m_TimeToStationary: 0.5
 --- !u!1 &6460710561594003188
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,8 +501,8 @@ GameObject:
   m_Name: Cube.103
   m_TagString: Door
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &5956590173728134314
 Transform:

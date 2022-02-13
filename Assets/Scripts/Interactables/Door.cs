@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private bool isOpen;
+    [SerializeField] private bool isLocked;
     [SerializeField] private Collider[] playerColliders;
     private Animator _doorAnim;
 
@@ -19,6 +20,10 @@ public class Door : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (isLocked && !GameManager.Instance.HasKey)
+        {
+            return;
+        }
         isOpen = !isOpen;
         _doorAnim.SetBool("isOpen", isOpen);
         foreach (Collider playerCollider in playerColliders)

@@ -51,9 +51,9 @@ public class MouseLook : MonoBehaviour
         {
             if (_interactedObj)
             {
-                PrintName(_interactedObj);
                 if (_interactedObj.TryGetComponent<IInteractable>(out var interactable)) 
                 {
+                    PrintName(_interactedObj);
                     interactable.Interact();
                 }
             }
@@ -64,11 +64,10 @@ public class MouseLook : MonoBehaviour
 
     private void FixedUpdate()
     {       
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Debug.DrawRay(transform.position, transform.forward, Color.red);
 
-        if (Physics.Raycast(ray, out var hit, 100.0f, rayMask))
+        if (Physics.Raycast(transform.position, transform.forward, out var hit, 3.0f, rayMask))
         {
-            Debug.Log("Hit");
             _interactedObj = hit.transform.gameObject;
         }
         else

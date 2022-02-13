@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     
     [SerializeField] private bool areLightsOn = false;
+
+
+
     public UnityEvent<bool> areLightsOnChanged;
 
     public bool AreLightsOn
@@ -51,6 +55,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Win()
+    {
+        // TODO: Switch To End Scene
+
     }
 
 }
