@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private float mouseSensitivity = 60;
+    [SerializeField] private float movementSpeed = 3;
     [SerializeField] private Vector3 forwardVector;
     private Transform _cameraTransform;
     private void Awake()
@@ -24,6 +25,6 @@ public class CameraMovement : MonoBehaviour
 
         forwardVector = transform.InverseTransformDirection(_cameraTransform.forward);
 
-        transform.Translate(forwardVector * (forward * Time.deltaTime ));
+        transform.Translate(forwardVector * (forward * Time.deltaTime * movementSpeed));
     }
 }
