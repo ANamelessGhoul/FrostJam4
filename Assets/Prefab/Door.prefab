@@ -161,6 +161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpen: 0
+  playerColliders:
+  - {fileID: 1296666734}
 --- !u!1 &3928719182367649167
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +174,7 @@ GameObject:
   - component: {fileID: 6405682601735563217}
   - component: {fileID: 5037948273572412476}
   - component: {fileID: 6836117022348780922}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Handle_Front.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +255,8 @@ GameObject:
   - component: {fileID: 3274733017804963360}
   - component: {fileID: 1918270405429249124}
   - component: {fileID: 2756806421273387447}
-  m_Layer: 7
+  - component: {fileID: 1296666734}
+  m_Layer: 0
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -325,6 +328,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1296666734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6580110670287853287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00836, y: 0.00034000105, z: 0.0189}
+  m_Center: {x: 0.00418, y: 0.0001699964, z: -0.00026000105}
 --- !u!1 &8129112451194739588
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +352,7 @@ GameObject:
   - component: {fileID: 1827565343551603699}
   - component: {fileID: 2745040075809549704}
   - component: {fileID: 9185200095734690739}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Handle_Back.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

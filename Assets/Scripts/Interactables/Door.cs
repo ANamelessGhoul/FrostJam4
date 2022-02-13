@@ -5,17 +5,23 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private bool isOpen;
+    [SerializeField] private Collider[] playerColliders;
     private Animator _doorAnim;
 
     private void Awake()
     {
         _doorAnim = GetComponent<Animator>();
         _doorAnim.SetBool("isOpen", isOpen);
+        foreach (Collider playerCollider in playerColliders)
+            playerCollider.enabled = !isOpen;
+
     }
 
     public void Interact()
     {
         isOpen = !isOpen;
         _doorAnim.SetBool("isOpen", isOpen);
+        foreach (Collider playerCollider in playerColliders)
+            playerCollider.enabled = !isOpen;
     }
 }
