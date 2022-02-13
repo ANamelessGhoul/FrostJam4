@@ -68,6 +68,7 @@ public class MouseLook : MonoBehaviour
 
         if (Physics.Raycast(ray, out var hit, 100.0f, rayMask))
         {
+            Debug.Log("Hit");
             _interactedObj = hit.transform.gameObject;
         }
         else
