@@ -6,27 +6,29 @@ using UnityEngine.Events;
 public class MouseLook : MonoBehaviour
 {
     //default sensitivity is here
-    public UnityEvent loopEvent;
-    public float mouseSensitivity = 200f;
-    public GameObject interactedObj;
-    public Transform playerBody;
-    public LayerMask rayMask;
-    public bool openDoor;
-    float xRotation = 0f;
+    [Header("Look")]
+    [SerializeField] private float mouseSensitivity = 200f;
+    [SerializeField] private Transform playerBody;
+
+    [Header("Head bob")]
+    [SerializeField] private float amplitude = 0.20f;
+    [SerializeField] private float period = 2f;
+
+    [Header("Interaction")]
+    [SerializeField] private LayerMask rayMask;
+    private GameObject _interactedObj;
+    private float _xRotation = 0f;
+
     Vector3 startPos;
-    public float amplitude = 0.20f;
-    public float period = 2f;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         //cursor is locked to the middle
         Cursor.lockState = CursorLockMode.Locked;
-        loopEvent.Invoke();
         startPos.y = transform.position.y;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -37,19 +39,23 @@ public class MouseLook : MonoBehaviour
         transform.position += Vector3.up * distance * Time.deltaTime;
 
         
-        xRotation -= mouseY;
+        _xRotation -= mouseY;
         //rotation of the camera is limited with these boundaries for x axis
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+
         if (Input.GetMouseButtonDown(0))
         {
-            if (interactedObj)
+            if (_interactedObj)
             {
-                //compare koyamadim aqq
-                //Destroy(interactedObj);
-                openDoor = !openDoor;
+                PrintName(_interactedObj);
+                if (_interactedObj.TryGetComponent<IInteractable>(out var interactable)) 
+                {
+                    interactable.Interact();
+                }
             }
             
         }
@@ -62,14 +68,11 @@ public class MouseLook : MonoBehaviour
 
         if (Physics.Raycast(ray, out var hit, 100.0f, rayMask))
         {
-            
-            PrintName(hit.transform.gameObject);
-            interactedObj = hit.transform.gameObject;
-
+            _interactedObj = hit.transform.gameObject;
         }
         else
         {
-            interactedObj = null;
+            _interactedObj = null;
         }
     }
 
