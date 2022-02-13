@@ -12,13 +12,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = transform.forward;
+        Vector3 move = Vector3.zero;
 
         //If the W key is pressed player moves forward
         if (Input.GetKey(KeyCode.W))
         {
-            controller.Move(move * Time.deltaTime * speed);
+            move = transform.forward;
         }
 
+        controller.Move(move * Time.deltaTime * speed + Vector3.down);
     }
+
 }
