@@ -11,6 +11,7 @@ public class MouseLook : MonoBehaviour
     public GameObject interactedObj;
     public Transform playerBody;
     public LayerMask rayMask;
+    public bool openDoor;
     float xRotation = 0f;
     Vector3 startPos;
     public float amplitude = 0.20f;
@@ -46,9 +47,9 @@ public class MouseLook : MonoBehaviour
         {
             if (interactedObj)
             {
+                //compare koyamadim aqq
                 //Destroy(interactedObj);
-
-                interactedObj.name = "newObj";
+                openDoor = !openDoor;
             }
             
         }
