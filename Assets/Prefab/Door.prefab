@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5098829266820592044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2502966299755574591}
-  m_LocalRotation: {x: -0.5028722, y: -0.49711117, z: -0.49711263, w: 0.5028708}
+  m_LocalRotation: {x: -0.5028716, y: -0.4971119, z: -0.4971119, w: 0.5028716}
   m_LocalPosition: {x: 8.271912, y: 0.91103715, z: -0.32843846}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1992280966940092046}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -89.34}
 --- !u!1 &2883578429337208377
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,9 +42,12 @@ GameObject:
   - component: {fileID: 1992280966940092046}
   - component: {fileID: 5822004167893816121}
   - component: {fileID: 2571962961628871967}
-  m_Layer: 0
+  - component: {fileID: 2049033756}
+  - component: {fileID: 2049033752}
+  - component: {fileID: 2049033751}
+  m_Layer: 7
   m_Name: DoorFrame
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,6 +116,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2049033756
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883578429337208377}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0094, y: 0.00080000097, z: 0.0195}
+  m_Center: {x: -2.5237606e-10, y: 0.00013333364, z: 0.00975}
+--- !u!95 &2049033752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883578429337208377}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ec14519152f08a45a12f113554152a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2049033751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883578429337208377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c307881295aa313448d699ddbfb4da20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
 --- !u!1 &3928719182367649167
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +172,7 @@ GameObject:
   - component: {fileID: 6405682601735563217}
   - component: {fileID: 5037948273572412476}
   - component: {fileID: 6836117022348780922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle_Front.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,9 +253,9 @@ GameObject:
   - component: {fileID: 3274733017804963360}
   - component: {fileID: 1918270405429249124}
   - component: {fileID: 2756806421273387447}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6580110670287853287}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.00418, y: -0.00022101402, z: 0.009749999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -288,7 +336,7 @@ GameObject:
   - component: {fileID: 1827565343551603699}
   - component: {fileID: 2745040075809549704}
   - component: {fileID: 9185200095734690739}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Handle_Back.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
